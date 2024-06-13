@@ -139,10 +139,18 @@ target_compile_features(app PRIVATE cxx_std_17)
 ###############################################################################
 # DEMO APPS
 ###############################################################################
-set(IMPLOT_DEMO_DIR ${PROJECT_SOURCE_DIR}/implot_demo)
+set(IMPLOT_DEMO_DIR ${PROJECT_SOURCE_DIR}/implot_demo/demos)
 
 # main ImPlot demo
-add_executable(demo "${IMPLOT_DEMO_DIR}/demos/demo.cpp")
+set(IMPLOT_DEMO_HEAD
+    ${IMPLOT_DEMO_DIR}/MainView.h
+)
+
+set(IMPLOT_DEMO_SRC
+    ${IMPLOT_DEMO_DIR}/MainView.cpp
+    ${IMPLOT_DEMO_DIR}/demo.cpp
+)
+add_executable(demo ${IMPLOT_DEMO_HEAD} ${IMPLOT_DEMO_SRC})
 target_link_libraries(demo app)
 
 
