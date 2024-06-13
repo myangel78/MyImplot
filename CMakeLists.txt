@@ -79,7 +79,11 @@ find_package(OpenGL REQUIRED)
 # provide your own version by setting QTIMGUI_BUILD_IMGUI to OFF
 add_library(imgui STATIC ${IMGUI_SRC} ${IMGUI_HEAD} )
 #target_include_directories(imgui PUBLIC ${IMGUI_DIR})
-target_link_libraries(imgui PUBLIC glfw glad OpenGL::GL imm32)
+if (WIN32)
+  target_link_libraries(imgui PUBLIC glfw glad OpenGL::GL imm32)
+else()
+  target_link_libraries(imgui PUBLIC glfw glad OpenGL::GL)
+endif()
 
 include_directories(${IMGUI_DIR} ${IMGUI_DIR}/examples ${IMGUI_DIR}/examples/libs/gl3w ${IMGUI_DIR}/backends ${IMGUI_DIR}/misc/cpp)
 

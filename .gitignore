@@ -4,6 +4,9 @@ build/*
 #out
 out/*
 
+#vscode 
+.vscode/*
+
 # Prerequisites
 *.d
 
