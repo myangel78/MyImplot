@@ -11,6 +11,10 @@ struct ImPlotDemo : App {
     MainView* m_pMainview = nullptr;
     void SetMainViewPtr(MainView* pmainview) {
         m_pMainview = pmainview;
+        if (m_pMainview)
+        {
+            m_pMainview->SetClearColor(&ClearColor);
+        }
     }
 
     void Update() override {
