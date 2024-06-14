@@ -9,12 +9,9 @@ struct ImPlotDemo : App {
     using App::App;
 
     MainView* m_pMainview = nullptr;
-    void SetMainViewPtr(MainView* pmainview) {
+    void InitMainViewPtr(MainView* pmainview, ImVec4 *pClearColor) {
         m_pMainview = pmainview;
-        if (m_pMainview)
-        {
-            m_pMainview->SetClearColor(&ClearColor);
-        }
+        m_pMainview->SetClearColorPtr(pClearColor);
     }
 
     void Update() override {
@@ -42,7 +39,7 @@ int main(int argc, char const *argv[])
     ImPlotDemo app("ImPlot Demo",1920,1080,argc,argv);
 
     MainView* m_pMainview = new MainView();
-    app.SetMainViewPtr(m_pMainview);
+    app.InitMainViewPtr(m_pMainview,&app.ClearColor);
 
     app.Run();
 

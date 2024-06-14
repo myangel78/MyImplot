@@ -5,7 +5,7 @@ class MainView
 {
 public:
 	void Update(void);
-	void SetClearColor(ImVec4* pclearColor) { m_pClear_color = pclearColor; }
+	void SetClearColorPtr(ImVec4* pclearColor) { m_pClear_color = pclearColor; }
 
 private:
 	bool show_imgui_demo_window = false;
