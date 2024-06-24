@@ -27,8 +27,11 @@ struct ImPlotDemo : App {
     }
 };
 
+
+
 int main(int argc, char const *argv[])
 {
+
 #ifdef IMPLOT_DEBUG
     fprintf(stdout, "**** defined IMPLOT_DEBUG ****\n");
 #endif
